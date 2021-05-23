@@ -11,3 +11,43 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+/* App.js styles */
+.more-info{
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  font-size: 20px;
+  color: black;
+  background: blue;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  text-align: center;
+  cursor: pointer;
+ }
+ 
+ .more-info:hover .info{
+  display: block;
+ }
+ .info{
+     display: none;
+     text-align: left;
+     width: 300px;
+     height: auto;
+     font-size: 16px;
+     background: lightblue;
+     padding: 12px;
+     border-radius: 4px;
+     position: absolute;
+     right: 120%;
+ }
+ 
+ 
+ 
+ .ui-header {
+     text-align: center;
+     font-size: 50px;
+     font-weight: 600;
+ }
