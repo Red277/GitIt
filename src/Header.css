@@ -1,0 +1,56 @@
+.more-info{
+    position: relative;
+    right: 10px;
+    top: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    color: black;
+    background: #b0b2c5;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+
+    justify-self: flex-end;
+   }
+   
+.more-info:hover .info{
+display: block;
+}
+.info{
+    display: none;
+    text-align: left;
+    width: 300px;
+    height: auto;
+    font-size: 16px;
+    background: lightblue;
+    padding: 12px;
+    border-radius: 4px;
+    position: absolute;
+    right: 120%;
+    z-index: 100;
+}
+
+
+
+.ui-header {
+    
+    background: #121e38;
+    display: grid;
+    grid-template-columns: 30% auto 30%;
+
+
+}
+.ui-header-title {
+    text-align: center;
+    font-size: 50px;
+    font-weight: 600;
+    color: #b0b2c5;
+}
+
+.ui-header-left {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}

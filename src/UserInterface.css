@@ -1,34 +1,192 @@
-.ui-container {
-    margin: 0;
+.page-bg {
+  background: var(--color-background);        /*#081022;*/
+  transition: background 1s;
+  height: auto; /*will cause extra scroll bar if not big enough */
+  overflow: auto;
+  /* position: relative; */
+  min-height: 100vh;
+}
+
+.page-content {
+  margin: 0 auto;
+  width: 63%;
+  height: auto;
+  overflow:auto;
+}
+
+
+
+
+
+.user-info-container {
+    height: 4rem;
+    margin-top: 2rem;
+    background: var(--color-background-light);
+    border-radius: 4px;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 60px auto;
+    align-items: center;
+    column-gap: 12px;
+}
+.user-pic{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+
+}
+
+.repos-container{
+    height: auto;
+    margin-top: 2rem;
+    background: var(--color-background-light);
+    border-radius: 4px;
+    min-height: 4rem;
+    padding: 1rem;
+
+    display: grid;
+    grid-auto-rows: 101px;
+    row-gap: 32px;
+}
+
+.repo-info{
+    /* padding: 8px; */
+    display:grid;
+    grid-template-columns: 80px auto;
+}
+.repo-info-left{
+    display: grid;
+    grid-template-rows: 80px auto;
+    position: relative;
+}
+.repo-hover-info {
+    display:none;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    width: 500px;
-    height: 500px;
-    background: burlywood;
+    left: 120%;
+    background: var(--color-background);
+    border-radius: 4px;
+    padding: 1rem;
+}
+.repo-hover-info::before{
+    display: none;
+    content: "";
+    position: absolute;
+    right: 100%;
+    top: 24px;
+    width: 0;
+    height: 0;
+    border-top: 12px solid transparent;
+    border-right: 12px solid var(--color-background);
+    border-bottom: 12px solid transparent;
+}
+
+
+.repo-icon {
+    border-radius: 4px;
+    background: var(--color-background);
+    color: var(--color-text);
+
+    font-size: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    cursor: pointer;
+}
+.repo-icon:hover .tooltip{
+    display:flex;
+}
+.repo-icon:hover ~ .repo-hover-info {
+    display:block;
+}
+.repo-icon:hover ~ .repo-hover-info::before {
+    display:block;
+}
+.repo-icon:hover{
+    color:var(--color-text-hover);
+}
+
+.tooltip{
+    display: none;
+    align-items: center;
+    text-align: center;
+    font-weight: 600;
+    position: absolute;
+    font-size: 16px;
+    height: 80px;
+    background: rgba(0, 0, 0, 0.747);
     border-radius: 4px;
 }
 
 
 
-.ui-input {
-    margin-top: 20%;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.ui-container {
+    
+    margin: 100px auto;
+    width: 500px;
+    height: 200px;
+    background: var(--color-background-light);
+    border-radius: 4px;
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+.ui-input {
+
 }
 .ui-input-label{
+    color: var(--color-text);
     text-align: center;
     font-size: 24px;
     font-weight: 600;
+    user-select: none;
 }
 .ui-input-textbox {
     margin: 0 auto;
+    user-select: contain;
 }
 .ui-input-button {
-    cursor: pointer;
-    background: blueviolet;
+    width: 100px;
+
     border-radius: 4px;
 
+    background-color: #3498DB;
+    color: white;
+    
+    font-size: medium;
+    font-weight: 600;
+    text-align: center;
+    line-height: initial;
+    border: none;
+    cursor: pointer;
+
+    padding: 6px 20px;
+    user-select: none;
+}
+.ui-input-button:hover{
+    background-color: #3eabf3;
+}
+
+.ui-input-button.error{
+    background-color: #be3855;
+    width: 120px;
+    padding: 6px 10px;
 }
