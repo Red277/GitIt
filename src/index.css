@@ -16,9 +16,10 @@ code {
 :root {
   --color-background: #ececec;
   --color-background-dark: #c9c7c7;
+  --color-background-opaque: #c9c7c7b9;
   --color-text: #000000;
   --color-text-hover: #6e6e6e;
-  --color-text-grey: #616161;
+  --color-text-grey: #4d4c4c;
   --color-text-grey-hover: #777676;
   --color-background-light: #ffffff;
   --color-background-light-hover: #c2c0c0;
@@ -28,6 +29,7 @@ code {
 .site-theme-dark {
   --color-background: #081022;
   --color-background-dark: #000818;
+  --color-background-opaque: #000818ad;
   --color-text: #aeb1cf;
   --color-text-hover: #ced1e9;
   --color-text-grey: #b1afaf;

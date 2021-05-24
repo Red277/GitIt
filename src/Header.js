@@ -1,11 +1,8 @@
-import { useState, useEffect } from 'react';
+// import { useState, useEffect } from 'react';
 import './Header.css'
 import SiteThemeSelector from './SiteThemeSelector';
 
 function Header(props) {
-    // useEffect(() => {
-
-    // });
     return (
         <div className="ui-header">
             <div className="ui-header-left"><SiteThemeSelector/></div>

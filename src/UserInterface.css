@@ -11,10 +11,10 @@
   margin: 0 auto;
   width: 63%;
   height: auto;
-  overflow:auto;
+  /* overflow:auto; */
+
+  position: relative;
 }
-
-
 
 
 
@@ -36,9 +36,34 @@
 
 }
 
+
+
+.filters-container{
+    height: 16px;
+    margin-top: 2rem;
+    background: var(--color-background-light);
+    border-radius: 4px;
+    padding: 8px;
+    
+    display: grid;
+    grid-template-columns: auto auto;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
 .repos-container{
     height: auto;
-    margin-top: 2rem;
+    margin-top: 1rem;
     background: var(--color-background-light);
     border-radius: 4px;
     min-height: 4rem;
@@ -48,93 +73,6 @@
     grid-auto-rows: 101px;
     row-gap: 32px;
 }
-
-.repo-info{
-    /* padding: 8px; */
-    display:grid;
-    grid-template-columns: 80px auto;
-}
-.repo-info-left{
-    display: grid;
-    grid-template-rows: 80px auto;
-    position: relative;
-}
-.repo-hover-info {
-    display:none;
-    position: absolute;
-    left: 120%;
-    background: var(--color-background);
-    border-radius: 4px;
-    padding: 1rem;
-}
-.repo-hover-info::before{
-    display: none;
-    content: "";
-    position: absolute;
-    right: 100%;
-    top: 24px;
-    width: 0;
-    height: 0;
-    border-top: 12px solid transparent;
-    border-right: 12px solid var(--color-background);
-    border-bottom: 12px solid transparent;
-}
-
-
-.repo-icon {
-    border-radius: 4px;
-    background: var(--color-background);
-    color: var(--color-text);
-
-    font-size: 48px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    position: relative;
-    cursor: pointer;
-}
-.repo-icon:hover .tooltip{
-    display:flex;
-}
-.repo-icon:hover ~ .repo-hover-info {
-    display:block;
-}
-.repo-icon:hover ~ .repo-hover-info::before {
-    display:block;
-}
-.repo-icon:hover{
-    color:var(--color-text-hover);
-}
-
-.tooltip{
-    display: none;
-    align-items: center;
-    text-align: center;
-    font-weight: 600;
-    position: absolute;
-    font-size: 16px;
-    height: 80px;
-    background: rgba(0, 0, 0, 0.747);
-    border-radius: 4px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 .ui-container {

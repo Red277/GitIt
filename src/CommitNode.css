@@ -1,0 +1,28 @@
+.commit {
+    background: #adff2f;
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+
+    position: relative;
+
+}
+.commit:hover{
+    background: #73c000;
+}
+.commit:hover .commit-hover-info {
+    display: block;
+}
+
+.commit-hover-info {
+    display: none;
+    position: absolute;
+    bottom: 120%;
+    left: 110%;
+
+    width: 120px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.849);
+
+    z-index: 101;
+}

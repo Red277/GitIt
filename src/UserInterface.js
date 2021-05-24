@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './UserInterface.css';
 import { Octokit } from "@octokit/rest";
 import { retry } from "@octokit/plugin-retry";
 import { throttling } from "@octokit/plugin-throttling";
 
-import { RiGitRepositoryFill } from 'react-icons/ri';
+
+import RepoNode from './RepoNode';
 
 
 
@@ -62,20 +63,24 @@ function UserInterface() {
 
             octokit.rest.repos.listForUser({
                 username: user,
-                sort: 'updated'
+                sort: 'created'
             }).then(({ data }) => {
                 console.log(data);
                 setData(data);
-    
+
+                setIsClicked(true);
+
             }).catch((e) => {
                 console.log(e);
+                
             });
 
         }).catch((e) => {
             console.log(e);
+            setIsClicked(true);
         });
 
-        setIsClicked(true);
+        
 
         clearTimeout(timeout);
         timeout = setTimeout(function () { setIsClicked(false); }, 2000);
@@ -86,34 +91,31 @@ function UserInterface() {
     return (
         <div className="page-bg">
             <div className="page-content">
-                {( !(isEmpty(userData)) ) ?
+                {(!(isEmpty(userData))) ?
                     <>
                         <div className="user-info-container">
-                            <img src={userData.avatar_url} alt='No Image' className="user-pic"></img>
-                            <div style={{display:'grid', gridTemplateColumns:'repeat(4,auto)', gridTemplateRows:'auto auto', gridAutoFlow:'column', alignItems:'end'}}>
-                                <div><span style={{fontSize:'20px', fontWeight:'600', color:'var(--color-text)'}}>{userData.name}</span></div>
-                                <div><span style={{fontSize:'15px', fontWeight:'500', color:'var(--color-text)'}}>{userData.login}</span></div>
-                                <div><span style={{fontSize:'15px', fontWeight:'500', color:'var(--color-text)'}}>User since: {userData.created_at.split('T')[0]}</span></div>
-                                <div><span style={{fontSize:'15px', fontWeight:'500', color:'var(--color-text)'}}>Public Repos: {userData.public_repos}</span></div>
+                            <img src={userData.avatar_url} alt='No Pic' className="user-pic"></img>
+                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,auto)', gridTemplateRows: 'auto auto', gridAutoFlow: 'column', alignItems: 'end' }}>
+                                <div><span style={{ fontSize: '20px', fontWeight: '600', color: 'var(--color-text)' }}>{userData.login}</span></div>
+                                <div><span style={{ fontSize: '15px', fontWeight: '500', color: 'var(--color-text)' }}>{userData.name}</span></div>
+                                <div><span style={{ fontSize: '15px', fontWeight: '500', color: 'var(--color-text)' }}>User since: {userData.created_at.split('T')[0]}</span></div>
+                                <div><span style={{ fontSize: '15px', fontWeight: '500', color: 'var(--color-text)' }}>Public Repos: {userData.public_repos}</span></div>
                             </div>
                         </div>
 
-                        <div className="repos-container">
-                            <div className="repo-info">
-                                <div className="repo-info-left">
-                                    <div className="repo-icon">
-                                        <RiGitRepositoryFill />
-                                        <div className="tooltip">Show commits</div>
-                                    </div>
-                                    <div><span style={{fontSize:'15px', fontWeight:'500', color:'var(--color-text)', textAlign:'center'}}>09-02-2019</span></div>
-                                    <div className="repo-hover-info">
-                                        Hover-Info
-                                    </div>
-                                    
-                                </div>
+                        <div className="filters-container">
+                            <div>
+                                <span style={{ color: 'var(--color-text)', paddingRight: '4px' }}>Owner</span><div style={{ display: 'inline-block', background: 'green', width: '10px', height: '10px', borderRadius: '50%' }}></div>
                             </div>
-                            <div className="repo-info">Info box</div>
-                        
+                        </div>
+
+
+                        <div className="repos-container">
+                            {data.map((repo) => {
+                                return (
+                                    <RepoNode repoData={repo} userData={userData} />
+                                )
+                            })}
                         </div>
                     </>
                     :

@@ -1,0 +1,94 @@
+.repo-info{
+    /* padding: 8px; */
+    display:grid;
+    grid-template-columns: 80px auto;
+    column-gap: 120px;
+    user-select: none;
+}
+.repo-info-left{
+    display: grid;
+    grid-template-rows: 80px auto;
+    position: relative;
+}
+.repo-info-right{
+    color: var(--color-text);
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 16px;
+    grid-auto-rows:16px;
+    row-gap: 4px;
+    column-gap: 4px;
+
+    position: relative;
+}
+
+
+
+
+
+
+.repo-hover-info {
+    width: max-content;
+    height: auto;
+    display:none;
+    position: absolute;
+    left: 120%;
+    background: var(--color-background-opaque);
+    border-radius: 4px;
+    padding: 1rem;
+    z-index: 120;
+}
+.repo-hover-info::before{
+    display: none;
+    content: "";
+    position: absolute;
+    right: 100%;
+    top: 24px;
+    width: 0;
+    height: 0;
+    border-top: 12px solid transparent;
+    border-right: 12px solid var(--color-background-opaque);
+    border-bottom: 12px solid transparent;
+}
+
+
+.repo-icon {
+    border-radius: 4px;
+    background: var(--color-background);
+    color: var(--color-text);
+
+    font-size: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    cursor: pointer;
+}
+.repo-icon:hover .tooltip{
+    display:flex;
+}
+.repo-icon:hover ~ .repo-hover-info {
+    display:block;
+}
+.repo-icon:hover ~ .repo-hover-info::before {
+    display:block;
+}
+.repo-icon:hover{
+    color:var(--color-text-hover);
+}
+
+.tooltip{
+    color:white;
+    display: none;
+    align-items: center;
+    text-align: center;
+    font-weight: 600;
+    position: absolute;
+    font-size: 16px;
+    height: 80px;
+    background: rgba(0, 0, 0, 0.747);
+    border-radius: 4px;
+    z-index: 105;
+}

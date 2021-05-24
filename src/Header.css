@@ -1,5 +1,5 @@
 .more-info{
-    position: relative;
+    position: absolute;
     right: 10px;
     top: 10px;
     font-size: 20px;
@@ -10,9 +10,15 @@
     height: 30px;
     border-radius: 50%;
     text-align: center;
-    cursor: pointer;
 
     justify-self: flex-end;
+   }
+
+   .more-info.small{
+       background: var(--color-background);
+       width: 24px;
+       height: 24px;
+       font-size: 16px;
    }
    
 .more-info:hover .info{
@@ -29,7 +35,12 @@ display: block;
     border-radius: 4px;
     position: absolute;
     right: 120%;
-    z-index: 100;
+    z-index: 101;
+}
+.info.small {
+    font-size: 12px;
+    left: 120%;
+    width: 200px;
 }
 
 
